@@ -6,8 +6,11 @@
 """
 
 import socket
+import time
 from typing import Any
+from diagpack.replay.replay_timing import compute_delay
 from diagpack.can.socketcan import send_frame
+from diagpack.logging.jsonl_logger import read_events
 
 def event_to_frame_fields(event: dict[str, Any]) -> tuple[int, int, bytes]:
     can_id = event["id"]
@@ -19,3 +22,18 @@ def event_to_frame_fields(event: dict[str, Any]) -> tuple[int, int, bytes]:
 def replay_event(can_socket: socket.socket, event: dict[str, Any]) -> None:
     can_id, can_dlc, data = event_to_frame_fields(event)
     send_frame(can_socket, can_id, can_dlc, data)
+
+def replay_log(can_socket, file, speed: float = 1.0) -> None:
+    previous_ts = None
+
+    for event in read_events(file):
+        current_ts = event["ts"]  
+
+        if previous_ts is not None :
+            delay = compute_delay(current_ts, previous_ts, speed)
+            time.sleep(delay)
+
+        replay_event(can_socket, event)
+        previous_ts = current_ts
+    
+
