@@ -10,7 +10,7 @@ import argparse
 from diagpack.can.socketcan import open_can_socket
 from diagpack.capture.capture_loop import run_capture_loop
 from diagpack.replay.replay_engine import replay_log
-
+from diagpack.stress.burst_mode import send_burst
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
@@ -86,6 +86,45 @@ def build_parser() -> argparse.ArgumentParser:
         help="Replay speed factor (default: 1.0)",
     )
 
+    # Stress mode command
+    stress_parser = subparsers.add_parser(
+        "stress",
+        help="Send a burst of CAN frames at a specified rate",
+    )
+
+    stress_parser.add_argument(
+        "--iface",
+        required=True,
+        help="SocketCAN interface name. For example : vcan0",
+    )
+
+    stress_parser.add_argument(
+        "--id",
+        type=int,
+        required=True,
+        help="CAN ID (e.g., 123 or 0x123)",
+    )
+
+    stress_parser.add_argument(
+        "--data",
+        required=True,
+        help="Hex payload (e.g., 11223344)",
+    )
+
+    stress_parser.add_argument(
+        "--count",
+        type=int,
+        required=True,
+        help=" Number of frames to send in the burst",
+    )
+
+    stress_parser.add_argument(
+    "--delay",
+    type=float,
+    default=0.001,
+    help="Delay between frames (default: 0.001)",
+    )
+
     return parser
 
 
@@ -130,6 +169,20 @@ def run_replay_command(args) -> None:
     finally:
         can_socket.close()
 
+def run_burst_command(args) -> None:
+    can_socket = open_can_socket(args.iface)
+
+    try:
+        print(
+            f"Stress: iface={args.iface}, id={args.id}, data={args.data}, count={args.count}, delay={args.delay}. Press Ctrl+C to stop."
+        )
+        send_burst(can_socket, args.id, args.data, args.count, args.delay)
+    
+    except KeyboardInterrupt:
+        print("\nBurst mode stopped by user.")
+    
+    finally:
+        can_socket.close()
 
 def main() -> None:
     parser = build_parser()
@@ -139,3 +192,8 @@ def main() -> None:
         run_capture_command(args)
     elif args.command == "replay":
         run_replay_command(args)
+    elif args.command == "stress":
+        run_burst_command(args)
+    else:
+        print(f"Unknown command: {args.command}")
+        parser.print_help()
