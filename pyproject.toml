@@ -1,0 +1,9 @@
+[project]
+name = "diagpack"
+version = "0.1.0"
+description = "DiagPack CAN - diagnostic toolbox"
+authors = [{ name = "Lucas", email = "l.baquey@syloria.fr" }]
+requires-python = ">=3.10"
+
+[project.scripts]
+diagpack = "diagpack.__main__:main"
