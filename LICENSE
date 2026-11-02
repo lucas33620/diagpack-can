@@ -1,21 +1,35 @@
-MIT License
+DiagPack CAN — Source-Available Internal-Use License
+Version 1.0 (2026)
 
-Copyright (c) 2026 Baquey_Lucas
+Copyright (c) 2026 Baquey Lucas. All rights reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+IMPORTANT: This license applies only to copies of DiagPack CAN expressly distributed under this license. Earlier versions distributed under the MIT License remain subject to their original MIT terms. This license does not revoke permissions already granted.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+1. Ownership
+The copyright holder retains ownership of the original software and its documentation. Possession of source code, installation, use, or modification does not transfer that ownership.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+2. Internal-use permission
+Subject to the conditions below, the copyright holder grants each recipient a non-exclusive, worldwide, royalty-free, non-transferable license to download, install, run, reproduce, and modify the software for the recipient's own internal development, engineering, diagnostic, testing, evaluation, and validation purposes.
+
+The recipient may permit its employees and contractors to access the software solely on its behalf for those internal purposes, provided they are bound to respect these restrictions.
+
+3. Restrictions
+Without the copyright holder's prior written authorization, recipients may not:
+(a) sell, sublicense, publish, or distribute the software or modified versions to third parties, except for access by authorized employees and contractors under Section 2;
+(b) offer the software or modified versions as a standalone hosted software service to third parties;
+(c) remove copyright and license notices; or
+(d) claim ownership or authorship of the original software.
+
+Use of the software as an internal tool while providing engineering or testing services is permitted, provided no copy of the software or its modified versions is transferred to a client or other third party.
+
+4. Modifications
+Recipients may create, retain, and use modifications for their internal purposes. The copyright holder does not claim ownership of independently copyrightable modifications made by recipients. Such modifications do not change the ownership of the underlying original software. Distribution of modified versions remains restricted by Section 3.
+
+5. No trademark license
+This license grants no rights to use the copyright holder's trademarks, trade names, or logos to imply endorsement.
+
+6. Disclaimer and liability
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE COPYRIGHT HOLDER SHALL NOT BE LIABLE FOR DAMAGES ARISING FROM USE OF THE SOFTWARE.
+
+7. Separate agreements and prior grants
+A separate written agreement with the copyright holder may grant additional rights. Nothing in this license modifies any existing service, confidentiality, intellectual-property, or deliverables agreement, or limits permissions validly granted for earlier MIT-licensed versions.
